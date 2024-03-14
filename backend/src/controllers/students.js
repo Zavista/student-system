@@ -12,6 +12,27 @@ const getStudents = (req, res) => {
   });
 };
 
+// POST
+const addStudent = (req, res) => {
+  const sql =
+    "INSERT INTO students (`first_name`, `family_name`, `date_of_birth`) VALUES (?, ?, ?)";
+
+  const values = [
+    req.body.first_name,
+    req.body.family_name,
+    req.body.date_of_birth,
+  ];
+
+  connection.query(sql, values, (err) => {
+    if (err) {
+      console.log("Error adding student:", err);
+      return res.status(500).json({ message: err.message });
+    }
+    res.status(200).json("Student has been successfully added.");
+  });
+};
+
 module.exports = {
   getStudents,
+  addStudent,
 };
