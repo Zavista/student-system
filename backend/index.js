@@ -17,8 +17,8 @@ connection.connect((err) => {
 
 // Routes
 app.use("/students", studentsRouter);
-app.use("/courses", coursesRouter);
-app.use("/results", resultsRouter);
+//app.use("/courses", coursesRouter);
+//app.use("/results", resultsRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
