@@ -6,7 +6,7 @@ const getStudents = (req, res) => {
   connection.query(sql, (err, result) => {
     if (err) {
       console.log("Error getting students:", err);
-      res.status(500).json({ message: err.message });
+      return res.status(500).json({ message: err.message });
     }
     res.status(200).json(result);
   });
@@ -46,10 +46,25 @@ const updateStudent = (req, res) => {
 
   connection.query(sql, values, (err) => {
     if (err) {
-      console.log("Error update student:", err);
+      console.log("Error udating student:", err);
       return res.status(500).json({ message: err.message });
     }
-    res.status(200).json("Student has been successfully update.");
+    res.status(200).json("Student has been successfully updated.");
+  });
+};
+
+// DELETE
+const deleteStudent = (req, res) => {
+  const sql = "DELETE FROM students WHERE id = ?";
+
+  const values = [req.params.id];
+
+  connection.query(sql, values, (err) => {
+    if (err) {
+      console.log("Error deleting student:", err);
+      return res.status(500).json({ message: err.message });
+    }
+    res.status(200).json("Student has been successfully deleted.");
   });
 };
 
@@ -57,5 +72,5 @@ module.exports = {
   getStudents,
   addStudent,
   updateStudent,
-  a,
+  deleteStudent,
 };
