@@ -32,7 +32,30 @@ const addStudent = (req, res) => {
   });
 };
 
+// PUT
+const updateStudent = (req, res) => {
+  const sql =
+    "UPDATE students SET first_name = ?, family_name = ?, date_of_birth = ? where id = ?";
+
+  const values = [
+    req.body.first_name,
+    req.body.family_name,
+    req.body.date_of_birth,
+    req.params.id,
+  ];
+
+  connection.query(sql, values, (err) => {
+    if (err) {
+      console.log("Error update student:", err);
+      return res.status(500).json({ message: err.message });
+    }
+    res.status(200).json("Student has been successfully update.");
+  });
+};
+
 module.exports = {
   getStudents,
   addStudent,
+  updateStudent,
+  a,
 };
