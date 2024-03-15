@@ -42,7 +42,7 @@ const Top = styled.div`
   color: black;
   font-size: 30px;
   font-weight: 900;
-  border: 4px solid #333333;
+  border-right: 4px solid #333333;
   display: flex;
   align-items: center;
   justify-content: center;
