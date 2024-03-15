@@ -36,14 +36,6 @@ const IconContainer = styled.div`
 `;
 
 const StudentGrid = ({ students, setStudents, setOnEdit }) => {
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
-  };
-
   const handleEdit = (student) => setOnEdit(student);
 
   const handleDelete = async (id) => {
@@ -75,7 +67,7 @@ const StudentGrid = ({ students, setStudents, setOnEdit }) => {
           <Tr key={idx}>
             <Td width="30%">{student.first_name}</Td>
             <Td width="30%">{student.family_name}</Td>
-            <Td width="20%">{formatDate(student.date_of_birth)}</Td>
+            <Td width="20%">{student.date_of_birth.slice(0, 10)}</Td>
             <Td width="10%">
               <IconContainer>
                 <FaEdit onClick={() => handleEdit(student)}></FaEdit>
