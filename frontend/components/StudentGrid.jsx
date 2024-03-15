@@ -45,13 +45,13 @@ const StudentGrid = ({ students, setStudents, setOnEdit }) => {
       });
       const newArray = students.filter((student) => student.id !== id);
       setStudents(newArray);
+      alert(`Student has been deleted.`);
     } catch (err) {
       console.log("Error deleting student:", err);
     }
     setOnEdit(null);
   };
 
-  console.log(students);
   return (
     <Table>
       <Thead>
