@@ -44,6 +44,21 @@ const StudentGrid = ({ students, setStudents, setOnEdit }) => {
     return `${year}-${month}-${day}`;
   };
 
+  const handleEdit = (student) => setOnEdit(student);
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/students/${id}`, {
+        method: "DELETE",
+      });
+      const newArray = students.filter((student) => student.id !== id);
+      setStudents(newArray);
+    } catch (err) {
+      console.log("Error deleting student:", err);
+    }
+    setOnEdit(null);
+  };
+
   console.log(students);
   return (
     <Table>
@@ -63,8 +78,8 @@ const StudentGrid = ({ students, setStudents, setOnEdit }) => {
             <Td width="20%">{formatDate(student.date_of_birth)}</Td>
             <Td width="10%">
               <IconContainer>
-                <FaEdit onClick={() => handle}></FaEdit>
-                <FaTrash></FaTrash>
+                <FaEdit onClick={() => handleEdit(student)}></FaEdit>
+                <FaTrash onClick={() => handleDelete(student.id)}></FaTrash>
               </IconContainer>
             </Td>
           </Tr>
