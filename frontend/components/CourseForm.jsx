@@ -56,7 +56,7 @@ const CourseForm = ({ getCourses, onEdit, setOnEdit }) => {
 
   useEffect(() => {
     if (onEdit) {
-      setCourseName(onEdit.couse_name);
+      setCourseName(onEdit.course_name);
     }
   }, [onEdit]);
 
