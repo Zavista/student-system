@@ -99,7 +99,7 @@ const StudentForm = ({ getStudents, onEdit, setOnEdit }) => {
         alert("Failed to update student. Please try again.");
         return;
       }
-      alert(`${firstName}${familyName} has been updated.`);
+      alert(`${firstName} ${familyName} has been updated.`);
     } else {
       try {
         const response = await fetch("http://localhost:5000/students", {
