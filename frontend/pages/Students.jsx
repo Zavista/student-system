@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import StudentForm from "../components/StudentForm";
 import StudentGrid from "../components/StudentGrid";
+import { useState, useEffect } from "react";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -36,13 +37,34 @@ const Top = styled.div`
 `;
 
 const Students = () => {
+  const [students, setStudents] = useState([]);
+  const [onEdit, setOnEdit] = useState(null);
+
+  const getStudents = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/students");
+      const data = await res.json();
+      setStudents(data);
+    } catch (err) {
+      console.log("Error fetching students:", err);
+    }
+  };
+
+  useEffect(() => {
+    getStudents();
+  }, []);
+
   return (
     <Wrapper>
       <Navbar></Navbar>
       <Container>
         <Top>Students</Top>
         <StudentForm></StudentForm>
-        <StudentGrid></StudentGrid>
+        <StudentGrid
+          students={students}
+          setStudents={setStudents}
+          setOnEdit={setOnEdit}
+        ></StudentGrid>
       </Container>
     </Wrapper>
   );
