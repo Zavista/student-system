@@ -51,10 +51,20 @@ const Button = styled.button`
   }
 `;
 
-const StudentForm = ({ getStudents }) => {
+const StudentForm = ({ getStudents, onEdit, setOnEdit }) => {
   const [firstName, setFirstName] = useState("");
   const [familyName, setFamilyName] = useState("");
   const [dob, setDOB] = useState("");
+
+  useEffect(() => {
+    if (onEdit) {
+      setFirstName(onEdit.first_name);
+      setFamilyName(onEdit.family_name);
+
+      const yyyy_mm_dd = onEdit.date_of_birth.slice(0, 10);
+      setDOB(yyyy_mm_dd);
+    }
+  }, [onEdit]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
