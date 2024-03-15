@@ -35,7 +35,7 @@ const addStudent = (req, res) => {
 // PUT
 const updateStudent = (req, res) => {
   const sql =
-    "UPDATE students SET first_name = ?, family_name = ?, date_of_birth = ? where id = ?";
+    "UPDATE students SET first_name = ?, family_name = ?, date_of_birth = ? WHERE id = ?";
 
   const values = [
     req.body.first_name,
