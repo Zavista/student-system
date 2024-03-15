@@ -14,6 +14,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-left: 10px solid #333333;
+  border-right: 10px solid #333333;
 `;
 
 const Item = styled.div`
@@ -37,12 +39,13 @@ const Item = styled.div`
 const Top = styled.div`
   width: 100%;
   height: 60px;
+  padding-top: 12px;
   margin-bottom: 8px;
   background-color: #333333;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 900;
-  border-bottom: 2px dashed #fff;
+  border-bottom: 2px solid #fff;
   display: flex;
   align-items: center;
   justify-content: center;
