@@ -45,6 +45,7 @@ const CourseGrid = ({ courses, setCourses, setOnEdit }) => {
       });
       const newArray = courses.filter((courses) => courses.id !== id);
       setCourses(newArray);
+      alert(`Course has been deleted.`);
     } catch (err) {
       console.log("Error deleting courses:", err);
     }
