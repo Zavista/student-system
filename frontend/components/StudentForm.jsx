@@ -51,12 +51,12 @@ const Button = styled.button`
   }
 `;
 
-const StudentForm = () => {
+const StudentForm = ({ getStudents }) => {
   const [firstName, setFirstName] = useState("");
   const [familyName, setFamilyName] = useState("");
   const [dob, setDOB] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const today = new Date();
@@ -69,12 +69,29 @@ const StudentForm = () => {
       return;
     }
 
-    console.log("Form submitted:", { firstName, familyName, dob });
+    try {
+      const response = await fetch("http://localhost:5000/students", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: firstName,
+          family_name: familyName,
+          date_of_birth: dob,
+        }),
+      });
+    } catch (error) {
+      alert("Failed to add student. Please try again.");
+      return;
+    }
 
     alert(`${firstName}${familyName} has been added.`);
     setFirstName("");
     setFamilyName("");
     setDOB("");
+
+    getStudents();
   };
 
   return (
