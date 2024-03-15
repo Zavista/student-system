@@ -59,7 +59,11 @@ const Students = () => {
       <Navbar></Navbar>
       <Container>
         <Top>Students</Top>
-        <StudentForm getStudents={getStudents}></StudentForm>
+        <StudentForm
+          getStudents={getStudents}
+          onEdit={onEdit}
+          setOnEdit={setOnEdit}
+        ></StudentForm>
         <StudentGrid
           students={students}
           setStudents={setStudents}
