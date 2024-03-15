@@ -8,7 +8,7 @@ const {
 
 const router = express.Router();
 
-// Students Routes
+// Course Routes
 
 router.get("/", getCourses);
 router.post("/", addCourse);
