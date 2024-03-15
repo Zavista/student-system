@@ -66,7 +66,7 @@ const ResultGrid = ({ results, setResults, setOnEdit }) => {
         {results.map((result, idx) => (
           <Tr key={idx}>
             <Td width="50%">{result.course_name}</Td>
-            <Td width="30%">{`${result.first_name} + ${result.family_name}`}</Td>
+            <Td width="30%">{`${result.first_name} ${result.family_name}`}</Td>
             <Td width="10%">{result.score}</Td>
             <Td width="10%">
               <IconContainer>
