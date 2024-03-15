@@ -9,11 +9,14 @@ const FormContainer = styled.form`
   flex-wrap: wrap;
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
+  border: 1px solid #333333;
   border-radius: 5px;
+  font-weight: 400;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+  margin-bottom: 2px;
+`;
 
 const InputArea = styled.div`
   display: flex;
@@ -23,7 +26,7 @@ const InputArea = styled.div`
 const Input = styled.input`
   width: 120px;
   padding: 0 10px;
-  border: 1px solid #bbb;
+  border: 1px solid #333333;
   border-radius: 5px;
   height: 40px;
 `;
