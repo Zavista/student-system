@@ -8,7 +8,7 @@ import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 
 const Container = styled.div`
   height: 100vh;
-  width: 10%;
+  width: 250px;
   background-color: #333333;
   color: #ffffff;
   display: flex;
@@ -38,11 +38,11 @@ const Top = styled.div`
   width: 100%;
   height: 60px;
   margin-bottom: 8px;
-  background-color: #fff;
-  color: black;
+  background-color: #333333;
+  color: #ffffff;
   font-size: 30px;
   font-weight: 900;
-  border-right: 4px solid #333333;
+  border-bottom: 2px dashed #fff;
   display: flex;
   align-items: center;
   justify-content: center;
