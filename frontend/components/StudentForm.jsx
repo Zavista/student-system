@@ -53,8 +53,29 @@ const StudentForm = () => {
   const [familyName, setFamilyName] = useState("");
   const [dob, setDOB] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const today = new Date();
+    const birthDate = new Date(dob);
+    const diff = today.getFullYear() - birthDate.getFullYear();
+    const isAtLeastTenYearsOld = diff >= 10;
+
+    if (!isAtLeastTenYearsOld) {
+      alert("Date of birth must be at least 10 years ago.");
+      return;
+    }
+
+    console.log("Form submitted:", { firstName, familyName, dob });
+
+    alert(`${firstName}${familyName} has been added.`);
+    setFirstName("");
+    setFamilyName("");
+    setDOB("");
+  };
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit}>
       <InputArea>
         <Label for="first_name">First Name</Label>
         <Input
