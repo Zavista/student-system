@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import StudentForm from "../components/StudentForm";
+import StudentGrid from "../components/StudentGrid";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -41,6 +42,7 @@ const Students = () => {
       <Container>
         <Top>Students</Top>
         <StudentForm></StudentForm>
+        <StudentGrid></StudentGrid>
       </Container>
     </Wrapper>
   );
