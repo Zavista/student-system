@@ -35,7 +35,16 @@ const IconContainer = styled.div`
   font-size: 20px;
 `;
 
-const StudentGrid = () => {
+const StudentGrid = ({ students, setStudents, setOnEdit }) => {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
+  console.log(students);
   return (
     <Table>
       <Thead>
@@ -47,17 +56,19 @@ const StudentGrid = () => {
         </Tr>
       </Thead>
       <Tbody>
-        <Tr>
-          <Td width="30%">Bob</Td>
-          <Td width="30%">Ross</Td>
-          <Td width="20%">2022-03-01</Td>
-          <Td alignCenter width="10%">
-            <IconContainer>
-              <FaEdit></FaEdit>
-              <FaTrash></FaTrash>
-            </IconContainer>
-          </Td>
-        </Tr>
+        {students.map((student, idx) => (
+          <Tr key={idx}>
+            <Td width="30%">{student.first_name}</Td>
+            <Td width="30%">{student.family_name}</Td>
+            <Td width="20%">{formatDate(student.date_of_birth)}</Td>
+            <Td width="10%">
+              <IconContainer>
+                <FaEdit onClick={() => handle}></FaEdit>
+                <FaTrash></FaTrash>
+              </IconContainer>
+            </Td>
+          </Tr>
+        ))}
       </Tbody>
     </Table>
   );
