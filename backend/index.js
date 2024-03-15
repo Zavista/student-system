@@ -15,6 +15,9 @@ connection.connect((err) => {
   console.log("Connected to MySQL");
 });
 
+app.use(express.json());
+app.use(cors());
+
 // Routes
 app.use("/students", studentsRouter);
 //app.use("/courses", coursesRouter);
