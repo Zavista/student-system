@@ -79,28 +79,52 @@ const StudentForm = ({ getStudents, onEdit, setOnEdit }) => {
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:5000/students", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          first_name: firstName,
-          family_name: familyName,
-          date_of_birth: dob,
-        }),
-      });
-    } catch (error) {
-      alert("Failed to add student. Please try again.");
-      return;
+    if (onEdit) {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/students/${onEdit.id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              first_name: firstName,
+              family_name: familyName,
+              date_of_birth: dob,
+            }),
+          }
+        );
+      } catch (error) {
+        alert("Failed to update student. Please try again.");
+        return;
+      }
+      alert(`${firstName}${familyName} has been updated.`);
+    } else {
+      try {
+        const response = await fetch("http://localhost:5000/students", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            first_name: firstName,
+            family_name: familyName,
+            date_of_birth: dob,
+          }),
+        });
+      } catch (error) {
+        alert("Failed to add student. Please try again.");
+        return;
+      }
+      alert(`${firstName} ${familyName} has been added.`);
     }
 
-    alert(`${firstName}${familyName} has been added.`);
     setFirstName("");
     setFamilyName("");
     setDOB("");
 
+    setOnEdit(null);
     getStudents();
   };
 
