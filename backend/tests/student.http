@@ -1,0 +1,29 @@
+
+GET  http://localhost:5000/students
+
+###
+
+POST http://localhost:5000/students
+content-type: application/json
+
+{
+    "first_name": "test1",
+    "family_name": "test2",
+    "date_of_birth": "2000-01-01"
+}
+
+###
+PUT http://localhost:5000/students/4
+content-type: application/json
+
+{
+    "first_name": "updated",
+    "family_name": "test2",
+    "date_of_birth": "2000-01-01"
+}
+
+###
+DELETE http://localhost:5000/students/5
+
+
+###
