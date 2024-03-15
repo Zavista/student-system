@@ -1,0 +1,29 @@
+
+GET  http://localhost:5000/results
+
+###
+
+POST http://localhost:5000/results
+content-type: application/json
+
+{
+    "student_id": 3,
+    "course_id": 2,
+    "score": "A"
+}
+
+###
+PUT http://localhost:5000/results/5
+content-type: application/json
+
+{
+    "student_id": 3,
+    "course_id": 2,
+    "score": "F"
+}
+
+###
+DELETE http://localhost:5000/results/5
+
+
+###
