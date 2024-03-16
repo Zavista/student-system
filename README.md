@@ -6,28 +6,6 @@ Welcome to the Student Result Management System!
 
 The project is structured into two main folders:
 
-1. **frontend**: Contains all frontend code, including React and JavaScript files.
-2. **backend**: Contains all backend code, including server-side scripts, APIs, and database configurations.
-
-## Getting Started
-
-Follow these steps to set up and run the Student Result Management System:
-
-1. **Clone the Repository**: Clone this Git repository to your local machine using the following command:
-
-Sure, here's a basic template for your README.md file:
-
-markdown
-Copy code
-
-# Student Result Management System
-
-Welcome to the Student Result Management System!
-
-## Project Structure
-
-The project is structured into two main folders:
-
 1. **frontend**: Contains all frontend code, including HTML, CSS, and JavaScript files.
 2. **backend**: Contains all backend code, including server-side scripts, APIs, and database configurations.
 
