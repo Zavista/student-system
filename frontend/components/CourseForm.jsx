@@ -97,7 +97,7 @@ const CourseForm = ({ getCourses, onEdit, setOnEdit }) => {
         alert("Failed to add course. Please try again.");
         return;
       }
-      alert(`${courseName} has been updated.`);
+      alert(`${courseName} has been added.`);
     }
 
     setCourseName("");
