@@ -60,6 +60,7 @@ const Results = () => {
       <Container>
         <Top>Results</Top>
         <ResultForm
+          results={results}
           getResults={getResults}
           onEdit={onEdit}
           setOnEdit={setOnEdit}
