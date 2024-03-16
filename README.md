@@ -19,7 +19,7 @@ Follow these steps to set up and run the Student Result Management System:
 
 2. **Navigate to Project Directory**: Open a terminal or command prompt and navigate to the project directory:
 
-`cd student-result-management-system`
+`cd student-system`
 
 3. **Backend Setup**:
 
