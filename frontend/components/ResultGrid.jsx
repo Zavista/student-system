@@ -36,7 +36,7 @@ const IconContainer = styled.div`
 `;
 
 const ResultGrid = ({ results, setResults, setOnEdit }) => {
-  const handleEdit = (results) => setOnEdit(result);
+  const handleEdit = (result) => setOnEdit(result);
 
   const handleDelete = async (id) => {
     try {
