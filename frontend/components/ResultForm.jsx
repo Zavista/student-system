@@ -59,6 +59,7 @@ const Select = styled.select`
   border: 1px solid #333333;
   border-radius: 5px;
   height: 30px;
+  cursor: pointer;
 `;
 
 const Option = styled.option``;
